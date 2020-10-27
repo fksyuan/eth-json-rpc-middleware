@@ -21,18 +21,18 @@ module.exports = function createWalletMiddleware(opts = {}) {
 
   return createScaffoldMiddleware({
     // account lookups
-    'eth_accounts': createAsyncMiddleware(lookupAccounts),
-    'eth_coinbase': createAsyncMiddleware(lookupDefaultAccount),
+    'platon_accounts': createAsyncMiddleware(lookupAccounts),
+    'platon_coinbase': createAsyncMiddleware(lookupDefaultAccount),
     // tx signatures
-    'eth_sendTransaction': createAsyncMiddleware(sendTransaction),
+    'platon_sendTransaction': createAsyncMiddleware(sendTransaction),
     // message signatures
-    'eth_sign': createAsyncMiddleware(ethSign),
-    'eth_signTypedData': createAsyncMiddleware(signTypedData),
-    'eth_signTypedData_v3': createAsyncMiddleware(signTypedDataV3),
-    'eth_signTypedData_v4': createAsyncMiddleware(signTypedDataV4),
+    'platon_sign': createAsyncMiddleware(ethSign),
+    'platon_signTypedData': createAsyncMiddleware(signTypedData),
+    'platon_signTypedData_v3': createAsyncMiddleware(signTypedDataV3),
+    'platon_signTypedData_v4': createAsyncMiddleware(signTypedDataV4),
     'personal_sign': createAsyncMiddleware(personalSign),
-    'eth_getEncryptionPublicKey': createAsyncMiddleware(encryptionPublicKey),
-    'eth_decrypt': createAsyncMiddleware(decryptMessage),
+    'platon_getEncryptionPublicKey': createAsyncMiddleware(encryptionPublicKey),
+    'platon_decrypt': createAsyncMiddleware(decryptMessage),
     'personal_ecRecover': createAsyncMiddleware(personalRecover),
   })
 
@@ -160,7 +160,7 @@ module.exports = function createWalletMiddleware(opts = {}) {
     // and the second param is definitely not, but is hex.
     let address, message
     if (resemblesAddress(firstParam) && !resemblesAddress(secondParam)) {
-      let warning = `The eth_personalSign method requires params ordered `
+      let warning = `The platon_personalSign method requires params ordered `
       warning += `[message, address]. This was previously handled incorrectly, `
       warning += `and has been corrected automatically. `
       warning += `Please switch this param order for smooth behavior in the future.`
@@ -178,7 +178,7 @@ module.exports = function createWalletMiddleware(opts = {}) {
       from: address,
       data: message,
     })
-    
+
     res.result = await processPersonalMessage(msgParams, req)
   }
 
@@ -206,7 +206,7 @@ module.exports = function createWalletMiddleware(opts = {}) {
 
     res.result = await processEncryptionPublicKey(address, req)
   }
-	
+
   async function decryptMessage (req, res) {
 
     if (!processDecryptMessage) {
@@ -231,7 +231,7 @@ module.exports = function createWalletMiddleware(opts = {}) {
   /**
    * Validates the keyholder address, and returns a normalized (i.e. lowercase)
    * copy of it.
-   * 
+   *
    * @param {string} address - The address to validate and normalize.
    * @param {Object} req - The request object.
    * @returns {string} - The normalized address, if valid. Otherwise, throws

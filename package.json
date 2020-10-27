@@ -1,5 +1,5 @@
 {
-  "name": "eth-json-rpc-middleware",
+  "name": "@fksyuan/git eth-json-rpc-middleware",
   "version": "5.0.2",
   "main": "block-ref.js",
   "directories": {
@@ -40,11 +40,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kumavis/eth-json-rpc-middleware.git"
+    "url": "git+https://github.com/fksyuan/eth-json-rpc-middleware.git"
   },
   "bugs": {
-    "url": "https://github.com/kumavis/eth-json-rpc-middleware/issues"
+    "url": "https://github.com/fksyuan/eth-json-rpc-middleware/issues"
   },
-  "homepage": "https://github.com/kumavis/eth-json-rpc-middleware#readme",
+  "homepage": "https://github.com/fksyuan/eth-json-rpc-middleware#readme",
   "description": ""
 }
