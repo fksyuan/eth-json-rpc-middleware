@@ -1,4 +1,4 @@
-const EthQuery = require('eth-query')
+const EthQuery = require('@fksyuan/eth-query')
 const createVm = require('ethereumjs-vm/dist/hooked').fromWeb3Provider
 const blockFromRpc = require('ethereumjs-block/from-rpc')
 const FakeTransaction = require('ethereumjs-tx/fake')

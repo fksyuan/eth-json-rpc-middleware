@@ -1,6 +1,6 @@
 const createAsyncMiddleware = require('json-rpc-engine/src/createAsyncMiddleware')
 const createScaffoldMiddleware = require('json-rpc-engine/src/createScaffoldMiddleware')
-const sigUtil = require('eth-sig-util')
+const sigUtil = require('@fksyuan/eth-sig-util')
 const { ethErrors } = require('eth-rpc-errors')
 
 module.exports = function createWalletMiddleware(opts = {}) {

@@ -1,6 +1,6 @@
 const EventEmitter = require('events')
-const EthQuery = require('eth-query')
-const ethUtil = require('ethereumjs-util')
+const EthQuery = require('@fksyuan/eth-query')
+const ethUtil = require('@fksyuan/ethereumjs-util')
 
 // this is a really minimal shim
 // not really tested, i hope it works
